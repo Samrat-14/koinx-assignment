@@ -18,6 +18,7 @@ body {
   background: var(--bg-color);
   width: 100%;
   min-height: 100vh;
+  color: var(--fz-black);
 }
 
 .container {
@@ -31,4 +32,28 @@ body {
   background: #fff;
   border-radius: 0.5rem;
   padding: 1.5rem;
+}
+
+.coin-nav {
+  & li {
+    cursor: pointer;
+
+    &.active {
+      color: #0141cf;
+      border-bottom: 3px solid #0052fe;
+      padding: 1rem 0;
+    }
+  }
+}
+
+.gradient {
+  background: linear-gradient(
+    90deg,
+    #ff4949,
+    #ff4e11,
+    #fc870a,
+    #f9b112,
+    #c2cb21,
+    #11eb68
+  );
 }

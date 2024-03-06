@@ -1,5 +1,5 @@
 import Carousel from '@/components/carousel';
-import Coin from '@/components/coin';
+import Coin from '@/components/coin/coin';
 import GetStarted from '@/components/getStarted';
 import TrendingCoins from '@/components/trendingCoins';
 import { ChevronsRight } from 'lucide-react';
