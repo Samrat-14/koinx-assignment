@@ -1,3 +1,4 @@
+import About from './about';
 import ChartContainer from './chartContainer';
 import Performance from './performance';
 import Sentiment from './sentiment';
@@ -20,7 +21,7 @@ export default function Coin() {
         </nav>
         <Performance />
         <Sentiment />
-        <div className="section mt-4">About Bitcoin</div>
+        <About />
         <div className="section mt-4">Tokenomics</div>
         <div className="section mt-4">Team</div>
       </div>

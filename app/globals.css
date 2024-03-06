@@ -57,3 +57,7 @@ body {
     #11eb68
   );
 }
+
+.hide-scroll::-webkit-scrollbar {
+  display: none;
+}

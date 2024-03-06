@@ -2,7 +2,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight } from 'lucide-react';
 
-import getStartedImg from '@/public/get-started.png';
+import getStartedImg from '@/public/images/get-started.png';
 
 export default function GetStarted() {
   return (
