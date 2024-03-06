@@ -5,6 +5,7 @@
 :root {
   --bg-color: #eff2f5;
   --fz-black: #0f1629;
+  --fz-gray: #3e5765;
 }
 
 * {
@@ -23,4 +24,11 @@ body {
   max-width: 1440px;
   margin-left: auto;
   margin-right: auto;
+  padding: 0 1rem;
+}
+
+.section {
+  background: #fff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
 }

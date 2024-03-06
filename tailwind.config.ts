@@ -11,6 +11,7 @@ const config: Config = {
       colors: {
         'bg-color': '#eff2f5',
         'fz-black': '#0F1629',
+        'fz-gray': '#3E5765',
       },
     },
   },
