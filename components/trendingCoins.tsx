@@ -1,6 +1,6 @@
 import Image from 'next/image';
-
 import { Triangle } from 'lucide-react';
+
 import { fetchTrendingCoins } from '@/app/actions';
 
 const NO_OF_COINS = 3;

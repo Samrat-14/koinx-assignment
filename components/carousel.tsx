@@ -3,6 +3,7 @@
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
+
 import { fetchTrendingCoins } from '@/app/actions';
 
 type CarouselType = {

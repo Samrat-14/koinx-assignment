@@ -1,7 +1,8 @@
+import { ChevronsRight } from 'lucide-react';
+
 import Carousel from '@/components/carousel';
 import GetStarted from '@/components/getStarted';
 import TrendingCoins from '@/components/trendingCoins';
-import { ChevronsRight } from 'lucide-react';
 
 export default function Home() {
   return (

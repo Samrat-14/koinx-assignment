@@ -1,8 +1,10 @@
+import Image from 'next/image';
+
+import Carousel from '../carousel';
+
 import johnImg from '@/public/images/john.png';
 import elinaImg from '@/public/images/elina.png';
 import smithImg from '@/public/images/smith.png';
-import Image from 'next/image';
-import Carousel from '../carousel';
 
 const teamData = [
   {

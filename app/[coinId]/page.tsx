@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Image from 'next/image';
 import { ChevronsRight } from 'lucide-react';
 
@@ -7,6 +8,18 @@ import GetStarted from '@/components/getStarted';
 import TrendingCoins from '@/components/trendingCoins';
 
 import { fetchCoinData } from '../actions';
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { coinId: string };
+}): Promise<Metadata> {
+  const data = await fetchCoinData(params.coinId);
+
+  return {
+    title: (data?.symbol as string).toUpperCase(),
+  };
+}
 
 export default async function CoinPage({
   params,

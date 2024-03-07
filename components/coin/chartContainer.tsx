@@ -1,8 +1,8 @@
 import Image from 'next/image';
+import { Triangle } from 'lucide-react';
 
 import TradingViewWidget from './chart';
 
-import { Triangle } from 'lucide-react';
 import { fetchCoinPrice } from '@/app/actions';
 
 export default async function ChartContainer({ data }: { data: any }) {
