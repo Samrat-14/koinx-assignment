@@ -4,7 +4,7 @@ Welcome to KoinX – Your Gateway to the Future of Crypto!
 
 This is the assignment for KoinX - Frontend Intern. The Figma design which have been implemented is here in [Figma Design](https://www.figma.com/file/VRj5MqVPoQdj5N7AwmYc98?embed_host=notion&kind=file&mode=design&node-id=0-1&t=x8gdUiF5gA3sjRd3-0&type=design&viewer=1).
 
-**Live Demo:** [https://samrat-koinx-assignment.vercel.app](https://samrat-koinx-assignment.vercel.app)
+**Live Demo:** [https://samrat-koinx-assignment.vercel.app/bitcoin](https://samrat-koinx-assignment.vercel.app/bitcoin)
 
 The Mandatory Tasks have been completed as follow:
 
