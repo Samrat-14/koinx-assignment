@@ -2,6 +2,7 @@ import About from './about';
 import ChartContainer from './chartContainer';
 import Performance from './performance';
 import Sentiment from './sentiment';
+import Tokenoimcs from './tokenoimcs';
 
 export default function Coin() {
   return (
@@ -22,7 +23,7 @@ export default function Coin() {
         <Performance />
         <Sentiment />
         <About />
-        <div className="section mt-4">Tokenomics</div>
+        <Tokenoimcs />
         <div className="section mt-4">Team</div>
       </div>
     </div>
