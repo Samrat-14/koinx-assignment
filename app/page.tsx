@@ -23,7 +23,7 @@ export default function Home() {
       </section>
 
       <section className="w-full bg-white mt-14">
-        <div className="section">
+        <div className="container !py-12">
           <Carousel label="You May Also Like" />
           <Carousel label="Trending Coins" />
         </div>

@@ -14,7 +14,6 @@ const fetchTrendingCoins = async () => {
 
 export default async function TrendingCoins() {
   const coinData = await fetchTrendingCoins();
-  console.log(coinData.map((coin: { name: string }) => coin.name));
 
   return (
     <div className="section mt-4">
@@ -29,13 +28,13 @@ export default async function TrendingCoins() {
               name: string;
               thumb: string;
               symbol: string;
-              data: { price_change_percentage_24h: { inr: number } };
+              data: { price_change_percentage_24h: { usd: number } };
             };
           },
           index: number
         ) => {
           const priceChange =
-            Math.round(item?.data?.price_change_percentage_24h?.inr * 100) /
+            Math.round(item?.data?.price_change_percentage_24h?.usd * 100) /
             100;
           return (
             <div
