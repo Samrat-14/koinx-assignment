@@ -3,7 +3,7 @@ import Coin from '@/components/coin/coin';
 import GetStarted from '@/components/getStarted';
 import TrendingCoins from '@/components/trendingCoins';
 import { ChevronsRight } from 'lucide-react';
-import coinImg from '@/app/favicon.ico';
+import bitcoinImg from '@/public/icons/bitcoin.png';
 import Image from 'next/image';
 
 export default function Home() {
@@ -16,7 +16,7 @@ export default function Home() {
       </div>
 
       <div className="container sm:hidden flex gap-2 items-center mb-6">
-        <Image src={coinImg} alt="coin-logo" />
+        <Image src={bitcoinImg} alt="coin-logo" />
         <h2 className="font-semibold text-2xl">Bitcoin</h2>
         <h3 className="text-[#5D667B]">BTC</h3>
         <span className="ml-8 bg-[#808A9D] rounded p-1 px-2 text-white">

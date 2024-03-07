@@ -1,13 +1,15 @@
 import Image from 'next/image';
 
-import coinImg from '@/app/favicon.ico';
-import { Triangle } from 'lucide-react';
 import TradingViewWidget from './chart';
+
+import { baseApiUrl } from '@/config';
+import bitcoinImg from '@/public/icons/bitcoin.png';
+import { Triangle } from 'lucide-react';
 
 const fetchCoinPrice = async () => {
   const id = 'bitcoin';
   const res = await fetch(
-    `https://api.coingecko.com/api/v3/simple/price?ids=${id}&vs_currencies=inr%2Cusd&include_24hr_change=true`,
+    `${baseApiUrl}/simple/price?ids=${id}&vs_currencies=inr%2Cusd&include_24hr_change=true`,
     {
       next: { revalidate: 10 * 60 },
     }
@@ -29,7 +31,7 @@ export default async function ChartContainer() {
   return (
     <div className="section sm:!p-6 !p-4">
       <div className="hidden sm:flex gap-2 items-center mb-10">
-        <Image src={coinImg} alt="coin-logo" />
+        <Image src={bitcoinImg} alt="coin-logo" />
         <h2 className="font-semibold text-2xl">Bitcoin</h2>
         <h3 className="text-[#5D667B]">BTC</h3>
         <span className="ml-8 bg-[#808A9D] rounded-lg p-2 px-4 text-white">

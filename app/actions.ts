@@ -1,7 +1,9 @@
 'use server';
 
+import { baseApiUrl } from '@/config';
+
 export const fetchTrendingCoins = async () => {
-  const res = await fetch('https://api.coingecko.com/api/v3/search/trending', {
+  const res = await fetch(`${baseApiUrl}/search/trending`, {
     next: { revalidate: 10 * 60 },
   });
   const data = await res.json();
