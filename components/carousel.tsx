@@ -33,12 +33,14 @@ export default function Carousel({ label }: CarouselType) {
 
   return (
     <div className="py-4">
-      <h1 className="text-2xl font-semibold">{label}</h1>
+      <h1 className="sm:text-2xl text-lg sm:font-semibold font-bold">
+        {label}
+      </h1>
 
       <div className="relative">
         <div
           ref={scrollRef}
-          className="flex gap-4 overflow-x-scroll mt-6 hide-scroll scroll-smooth"
+          className="flex sm:gap-4 gap-2 overflow-x-scroll sm:mt-6 mt-2 hide-scroll scroll-smooth"
         >
           {coinData.map(
             (
@@ -66,31 +68,35 @@ export default function Carousel({ label }: CarouselType) {
               return (
                 <div
                   key={`${item.symbol}-${index}`}
-                  className="block border-[#E3E3E3] border p-4 rounded-lg min-w-[252px] h-[160px]"
+                  className="block border-[#E3E3E3] border sm:p-4 p-2 rounded-lg sm:min-w-[252px] sm:h-[160px] min-w-[158px] h-[100px]"
                 >
-                  <div className="flex gap-1 items-center mb-2">
+                  <div className="flex gap-1 items-center sm:mb-2 mb-1">
                     <Image
                       src={item?.thumb}
                       alt=""
                       width={26}
                       height={26}
-                      className="rounded-full"
+                      className="rounded-full sm:h-[26px] sm:w-[26px] w-[16px] h-[16px]"
                     />
-                    <span className="text-[#202020]">{item?.symbol}</span>
+                    <span className="text-[#202020] sm:text-base text-[10px]">
+                      {item?.symbol}
+                    </span>
                     {priceChange > 0 ? (
-                      <span className="bg-[#EBF9F4] px-1 text-xs text-[#32BE88]">
-                        {priceChange}%
+                      <span className="bg-[#EBF9F4] px-1 sm:text-xs text-[8px] text-[#32BE88]">
+                        {`${priceChange > 0 ? '+' : ''}${priceChange}%`}
                       </span>
                     ) : (
-                      <span className="bg-[#f9e8ea] px-1 text-xs text-[#E96975]">
-                        {priceChange}%
+                      <span className="bg-[#f9e8ea] px-1 sm:text-xs text-[8px] text-[#E96975]">
+                        {`${priceChange}%`}
                       </span>
                     )}
                   </div>
                   {/* <p>${price || Math.round(Math.random() * 100) / 100}</p> */}
-                  <p className="text-[#171717] font-medium text-xl">${price}</p>
+                  <p className="text-[#171717] font-medium sm:text-xl text-xs">
+                    ${price}
+                  </p>
 
-                  <div className="w-full h-[60px] relative">
+                  <div className="w-full h-[40%] relative">
                     <Image
                       src={item?.data?.sparkline}
                       alt=""
@@ -105,15 +111,15 @@ export default function Carousel({ label }: CarouselType) {
         </div>
         <button
           onClick={() => scroll(-1)}
-          className="absolute top-[50%] translate-y-[-50%] left-0 translate-x-[-50%] w-10 h-10 rounded-full drop-shadow bg-white p-2"
+          className="absolute top-[50%] translate-y-[-50%] left-0 translate-x-[-50%] sm:w-10 sm:h-10 w-6 h-6 rounded-full drop-shadow bg-white grid place-content-center"
         >
-          <ChevronLeft />
+          <ChevronLeft className="sm:w-6 w-4" />
         </button>
         <button
           onClick={() => scroll(1)}
-          className="absolute top-[50%] translate-y-[-50%] right-0 translate-x-[50%] w-10 h-10 rounded-full drop-shadow bg-white p-2"
+          className="absolute top-[50%] translate-y-[-50%] right-0 translate-x-[50%] sm:w-10 sm:h-10 w-6 h-6 rounded-full drop-shadow bg-white grid place-content-center"
         >
-          <ChevronRight />
+          <ChevronRight className="sm:w-6 w-4" />
         </button>
       </div>
     </div>

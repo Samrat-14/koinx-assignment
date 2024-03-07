@@ -2,6 +2,7 @@ import johnImg from '@/public/images/john.png';
 import elinaImg from '@/public/images/elina.png';
 import smithImg from '@/public/images/smith.png';
 import Image from 'next/image';
+import Carousel from '../carousel';
 
 const teamData = [
   {
@@ -21,7 +22,7 @@ const teamData = [
 export default function Team() {
   return (
     <div className="section mt-4">
-      <h1 className="text-2xl font-semibold mb-6">Team</h1>
+      <h1 className="text-2xl font-semibold mb-4">Team</h1>
       <p className="text-[#3E424A] font-medium">
         Lorem ipsum dolor sit amet consectetur. Id consequat adipiscing arcu
         nibh. Eget mattis in mi integer sit egestas. Proin tempor id pretium
@@ -32,7 +33,7 @@ export default function Team() {
         {teamData.map((team, index) => (
           <div
             key={`${team.name}-${index}`}
-            className="bg-[#E8F4FD] px-8 py-4 rounded-lg flex gap-8 items-center my-6"
+            className="bg-[#E8F4FD] px-8 py-4 rounded-lg flex sm:flex-row flex-col sm:gap-8 gap-4 items-center my-6"
           >
             <div className="text-center">
               <Image src={team.image} alt={team.name} />
@@ -54,6 +55,11 @@ export default function Team() {
             </p>
           </div>
         ))}
+      </div>
+
+      <div className="sm:hidden block container">
+        <Carousel label="You May Also Like" />
+        <Carousel label="Trending Coins" />
       </div>
     </div>
   );

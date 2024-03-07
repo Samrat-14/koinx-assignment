@@ -49,9 +49,9 @@ const DonutChart = ({ data }: DonutChartType) => {
   );
 };
 
-export default function Tokenoimcs() {
+export default function Tokenomics() {
   return (
-    <div className="section mt-4">
+    <div className="hidden sm:block section mt-4">
       <h1 className="text-2xl font-semibold mb-6">Tokenomics</h1>
 
       <h2 className="text-[#1D1D1D] text-xl font-semibold mb-4">

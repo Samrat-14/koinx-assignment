@@ -33,6 +33,10 @@ body {
   background: #fff;
   border-radius: 0.5rem;
   padding: 1.5rem;
+
+  @media screen and (width < 420px) {
+    padding: 0.5rem;
+  }
 }
 
 .coin-nav {

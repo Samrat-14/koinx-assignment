@@ -8,44 +8,44 @@ type SliderType = {
   tag?: boolean;
 };
 
-const fundamentalsData = [
+export const fundamentalsData = [
   {
     title: 'Bitcoin Price',
     text: '$16,815.46',
-  },
-  {
-    title: 'Market Cap',
-    text: '$323,507,290,047',
   },
   {
     title: '24h Low / 24h High',
     text: '$16,382.07 / $16,874.12',
   },
   {
-    title: 'Market Cap Dominance',
-    text: '38.343%',
-  },
-  {
     title: '7d Low / 7d High',
     text: '$16,382.07 / $16,874.12',
-  },
-  {
-    title: 'Volume / Market Cap',
-    text: '0.0718',
   },
   {
     title: 'Trading Volume',
     text: '$23,249,202,782',
   },
   {
+    title: 'Market Cap Rank',
+    text: '#1',
+  },
+  {
+    title: 'Market Cap',
+    text: '$323,507,290,047',
+  },
+  {
+    title: 'Market Cap Dominance',
+    text: '38.343%',
+  },
+  {
+    title: 'Volume / Market Cap',
+    text: '0.0718',
+  },
+  {
     title: 'All-Time High',
     text: '$69,044.77 ',
     downPrice: '-75.6%',
     sub: 'Nov 10, 2021 (about 1 year)',
-  },
-  {
-    title: 'Market Cap Rank',
-    text: '#1',
   },
   {
     title: 'All-Time Low',
@@ -56,14 +56,14 @@ const fundamentalsData = [
 ];
 
 const Slider = ({ low, high, lowPrice, highPrice, tag }: SliderType) => (
-  <div className="flex gap-12 items-center justify-between py-6">
+  <div className="flex sm:gap-12 gap-6 items-center justify-between sm:py-6 py-4">
     <div>
-      <p className="text-[#44475B] text-sm mb-2">{low}</p>
-      <span className="font-medium">{lowPrice}</span>
+      <p className="text-[#44475B] sm:text-sm text-xs mb-2">{low}</p>
+      <span className="font-medium sm:text-base text-sm">{lowPrice}</span>
     </div>
     <div className="relative flex-1 h-1 gradient rounded-lg">
       {tag && (
-        <span className="absolute top-full left-[75%] text-[#44475B] text-sm">
+        <span className="absolute top-full left-[75%] translate-x-[-50%] text-[#44475B] sm:text-sm text-xs">
           <Triangle
             strokeWidth={1}
             size={10}
@@ -75,8 +75,8 @@ const Slider = ({ low, high, lowPrice, highPrice, tag }: SliderType) => (
       )}
     </div>
     <div className="text-end">
-      <p className="text-[#44475B] text-sm mb-2">{high}</p>
-      <span className="font-medium">{highPrice}</span>
+      <p className="text-[#44475B] sm:text-sm text-xs mb-2">{high}</p>
+      <span className="font-medium sm:text-base text-sm">{highPrice}</span>
     </div>
   </div>
 );
@@ -110,11 +110,11 @@ export default function Performance() {
             className="text-white"
           />
         </h2>
-        <ul className="grid grid-cols-2 gap-x-20 mb-8">
+        <ul className="grid sm:grid-rows-5 sm:grid-flow-col gap-x-20 sm:mb-8">
           {fundamentalsData.map((data) => (
             <li
               key={data.title}
-              className="flex items-center justify-between mr-6 h-[54px] border-b-[1px] border-[#D3E0E6]"
+              className="flex items-center justify-between sm:mr-6 h-[54px] border-b-[1px] border-[#D3E0E6]"
             >
               <span className="text-[#768396] text-sm font-medium">
                 {data.title}
