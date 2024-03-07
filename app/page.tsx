@@ -11,7 +11,7 @@ export default function Home() {
         <span className="text-fz-gray">Cryptocurrencies</span>
         <ChevronsRight className="text-fz-gray" strokeWidth={1} size={20} />
         <span className="font-medium flex gap-2">
-          Visit <i>/coin_name</i> to view the respective coin's details
+          Visit <i>/coin_name</i> to view the respective coin&apos;s details
         </span>
       </div>
 

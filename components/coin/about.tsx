@@ -11,9 +11,9 @@ export default function About({ data }: { data: any }) {
 
       <h2 className="font-bold text-lg mb-2">What is {data?.name}?</h2>
       <p className="text-[#3E424A] sm:font-medium font-normal">
-        {data?.name}’s price today is US$
+        {data?.name}&apos;s price today is US$
         {data?.market_data?.current_price?.usd.toLocaleString('en-US')}, with a
-        24-hour trading volume of $19.14 B.{' '}
+        24-hour trading volume of $19.14 B.&nbsp;
         {(data?.symbol as string).toUpperCase()} is +0.36% in the last 24 hours.
         It is currently -7.70% from its 7-day all-time high of $18,366.66, and
         3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating
