@@ -1,8 +1,9 @@
-import About from './about';
 import ChartContainer from './chartContainer';
 import Performance from './performance';
 import Sentiment from './sentiment';
+import About from './about';
 import Tokenoimcs from './tokenoimcs';
+import Team from './team';
 
 export default function Coin() {
   return (
@@ -24,7 +25,7 @@ export default function Coin() {
         <Sentiment />
         <About />
         <Tokenoimcs />
-        <div className="section mt-4">Team</div>
+        <Team />
       </div>
     </div>
   );
