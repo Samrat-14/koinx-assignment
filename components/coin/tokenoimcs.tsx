@@ -36,7 +36,7 @@ const DonutChart = ({ data }: DonutChartType) => {
       </div>
       <div>
         {data.map((tag) => (
-          <p key={tag.label} className="flex gap-2 items-center">
+          <p key={tag.label} className="flex gap-2 items-center mb-2">
             <span
               className="block w-3 h-3 rounded-full"
               style={{ background: tag.color } as React.CSSProperties}

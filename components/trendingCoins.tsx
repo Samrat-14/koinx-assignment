@@ -1,25 +1,19 @@
 import Image from 'next/image';
 
 import { Triangle } from 'lucide-react';
+import { fetchTrendingCoins } from '@/app/actions';
 
-const fetchTrendingCoins = async () => {
-  const res = await fetch('https://api.coingecko.com/api/v3/search/trending', {
-    next: { revalidate: 10 * 60 },
-  });
-  const data = await res.json();
-  const coins = await data.coins.slice(0, 3);
-
-  return coins;
-};
+const NO_OF_COINS = 3;
 
 export default async function TrendingCoins() {
   const coinData = await fetchTrendingCoins();
+  const topTrendingCoins = await coinData.slice(0, NO_OF_COINS);
 
   return (
     <div className="section mt-4">
       <h1 className="text-2xl font-semibold mb-6">Trending Coins (24h)</h1>
 
-      {coinData.map(
+      {topTrendingCoins.map(
         (
           {
             item,
