@@ -13,7 +13,7 @@ export default function Navbar() {
   return (
     <nav className="bg-white sm:h-[80px] h-[60px] w-full drop-shadow-md z-10 sticky top-0">
       <div className="container w-full h-full flex justify-between items-center !px-6">
-        <Image src={logo} alt="logo" />
+        <Image src={logo} alt="logo" priority />
         <ul className="hidden sm:flex items-center gap-8 text-fz-black font-semibold">
           <li>
             <Link href="/crypto-taxes">Crypto Taxes</Link>
@@ -32,13 +32,13 @@ export default function Navbar() {
         <div className="sm:hidden block">
           <span
             className={isMenuOpen ? 'hidden' : 'block'}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onClick={() => setIsMenuOpen(true)}
           >
             <Menu />
           </span>
           <span
             className={isMenuOpen ? 'block' : 'hidden'}
-            onClick={() => setIsMenuOpen((prev) => !prev)}
+            onClick={() => setIsMenuOpen(false)}
           >
             <X />
           </span>
@@ -49,16 +49,19 @@ export default function Navbar() {
             }`}
           >
             <ul className="flex flex-col items-center gap-8 text-fz-black font-semibold mt-10">
-              <li>
+              <li onClick={() => setIsMenuOpen(false)}>
                 <Link href="/crypto-taxes">Crypto Taxes</Link>
               </li>
-              <li>
+              <li onClick={() => setIsMenuOpen(false)}>
                 <Link href="/free-tools">Free Tools</Link>
               </li>
-              <li>
+              <li onClick={() => setIsMenuOpen(false)}>
                 <Link href="/resource-center">Resource Center</Link>
               </li>
-              <li className="bg-[#2870EA] h-[40px] rounded-md text-white grid place-content-center px-4">
+              <li
+                onClick={() => setIsMenuOpen(false)}
+                className="bg-[#2870EA] h-[40px] rounded-md text-white grid place-content-center px-4"
+              >
                 <Link href="/get-started">Get Started</Link>
               </li>
             </ul>

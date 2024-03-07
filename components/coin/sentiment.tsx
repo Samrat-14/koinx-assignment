@@ -5,7 +5,7 @@ import documentIcon from '@/public/icons/document.png';
 import analyticsIcon from '@/public/icons/analytics.png';
 import { fundamentalsData } from './performance';
 
-export default function Sentiment() {
+export default function Sentiment({ data }: { data: any }) {
   return (
     <div className="section mt-4">
       <h1 className="text-2xl font-semibold">Sentiment</h1>
@@ -113,7 +113,7 @@ export default function Sentiment() {
           />
         </h2>
         <ul className="grid sm:grid-rows-5 sm:grid-flow-col gap-x-20 sm:mb-8">
-          {fundamentalsData.map((data) => (
+          {fundamentalsData(data).map((data) => (
             <li
               key={data.title}
               className="flex items-center justify-between sm:mr-6 h-[54px] border-b-[1px] border-[#D3E0E6]"

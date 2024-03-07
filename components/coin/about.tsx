@@ -4,18 +4,20 @@ import Image from 'next/image';
 import holdingMobileImg from '@/public/images/holdingMobile.png';
 import trackAnalyticsImg from '@/public/images/trackAnalytics.png';
 
-export default function About() {
+export default function About({ data }: { data: any }) {
   return (
     <div className="section mt-4">
-      <h1 className="text-2xl font-semibold mb-6">About Bitcoin</h1>
+      <h1 className="text-2xl font-semibold mb-6">About {data?.name}</h1>
 
-      <h2 className="font-bold text-lg mb-2">What is Bitcoin?</h2>
+      <h2 className="font-bold text-lg mb-2">What is {data?.name}?</h2>
       <p className="text-[#3E424A] sm:font-medium font-normal">
-        Bitcoin’s price today is US$16,951.82, with a 24-hour trading volume of
-        $19.14 B. BTC is +0.36% in the last 24 hours. It is currently -7.70%
-        from its 7-day all-time high of $18,366.66, and 3.40% from its 7-day
-        all-time low of $16,394.75. BTC has a circulating supply of 19.24 M BTC
-        and a max supply of 21 M BTC.
+        {data?.name}’s price today is US$
+        {data?.market_data?.current_price?.usd.toLocaleString('en-US')}, with a
+        24-hour trading volume of $19.14 B.{' '}
+        {(data?.symbol as string).toUpperCase()} is +0.36% in the last 24 hours.
+        It is currently -7.70% from its 7-day all-time high of $18,366.66, and
+        3.40% from its 7-day all-time low of $16,394.75. BTC has a circulating
+        supply of 19.24 M BTC and a max supply of 21 M BTC.
       </p>
 
       <hr className="hidden sm:block my-8 border-[#C9CFDD]" />

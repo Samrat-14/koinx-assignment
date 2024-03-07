@@ -2,40 +2,32 @@ import Image from 'next/image';
 
 import TradingViewWidget from './chart';
 
-import { baseApiUrl } from '@/config';
-import bitcoinImg from '@/public/icons/bitcoin.png';
 import { Triangle } from 'lucide-react';
+import { fetchCoinPrice } from '@/app/actions';
 
-const fetchCoinPrice = async () => {
-  const id = 'bitcoin';
-  const res = await fetch(
-    `${baseApiUrl}/simple/price?ids=${id}&vs_currencies=inr%2Cusd&include_24hr_change=true`,
-    {
-      next: { revalidate: 10 * 60 },
-    }
-  );
-  const data = await res.json();
+export default async function ChartContainer({ data }: { data: any }) {
+  const coinData = await fetchCoinPrice(data?.name);
 
-  return data;
-};
+  const usdPrice = coinData[data?.name?.toLowerCase()]?.usd as number;
+  const inrPrice = coinData[data?.name?.toLowerCase()]?.inr as number;
 
-export default async function ChartContainer() {
-  const data = await fetchCoinPrice();
-
-  const usdPrice = data?.bitcoin?.usd as number;
-  const inrPrice = data?.bitcoin?.inr as number;
-
-  const usdPriceChangeRaw = data?.bitcoin?.usd_24h_change as number;
+  const usdPriceChangeRaw = coinData[data?.name?.toLowerCase()]
+    ?.usd_24h_change as number;
   const usdPriceChange = Math.round(usdPriceChangeRaw * 100) / 100;
 
   return (
     <div className="section sm:!p-6 !p-4">
       <div className="hidden sm:flex gap-2 items-center mb-10">
-        <Image src={bitcoinImg} alt="coin-logo" />
-        <h2 className="font-semibold text-2xl">Bitcoin</h2>
-        <h3 className="text-[#5D667B]">BTC</h3>
+        <Image
+          src={data?.image?.small}
+          width={36}
+          height={36}
+          alt="coin-logo"
+        />
+        <h2 className="font-semibold text-2xl capitalize">{data?.name}</h2>
+        <h3 className="text-[#5D667B] uppercase">{data?.symbol}</h3>
         <span className="ml-8 bg-[#808A9D] rounded-lg p-2 px-4 text-white">
-          Rank #1
+          Rank #{data?.market_cap_rank}
         </span>
       </div>
 

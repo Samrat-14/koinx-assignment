@@ -5,17 +5,19 @@ type SliderType = {
   high: string;
   lowPrice: string;
   highPrice: string;
-  tag?: boolean;
+  tag?: string;
 };
 
-export const fundamentalsData = [
+export const fundamentalsData = (data?: any) => [
   {
-    title: 'Bitcoin Price',
-    text: '$16,815.46',
+    title: `${data?.name} Price`,
+    text: `$${data?.market_data?.current_price?.usd.toLocaleString('en-US')}`,
   },
   {
     title: '24h Low / 24h High',
-    text: '$16,382.07 / $16,874.12',
+    text: `$${data?.market_data?.low_24h?.usd.toLocaleString(
+      'en-US'
+    )} / $${data?.market_data?.high_24h?.usd.toLocaleString('en-US')}`,
   },
   {
     title: '7d Low / 7d High',
@@ -23,15 +25,15 @@ export const fundamentalsData = [
   },
   {
     title: 'Trading Volume',
-    text: '$23,249,202,782',
+    text: `$${data?.market_data?.total_volume?.usd.toLocaleString('en-US')}`,
   },
   {
     title: 'Market Cap Rank',
-    text: '#1',
+    text: `#${data?.market_cap_rank}`,
   },
   {
     title: 'Market Cap',
-    text: '$323,507,290,047',
+    text: `$${data?.market_data?.market_cap?.usd.toLocaleString('en-US')}`,
   },
   {
     title: 'Market Cap Dominance',
@@ -39,7 +41,7 @@ export const fundamentalsData = [
   },
   {
     title: 'Volume / Market Cap',
-    text: '0.0718',
+    text: `${data?.market_data?.market_cap_fdv_ratio}`,
   },
   {
     title: 'All-Time High',
@@ -70,7 +72,7 @@ const Slider = ({ low, high, lowPrice, highPrice, tag }: SliderType) => (
             fill="black"
             className="mx-auto"
           />
-          $48,637.83
+          ${tag}
         </span>
       )}
     </div>
@@ -81,7 +83,7 @@ const Slider = ({ low, high, lowPrice, highPrice, tag }: SliderType) => (
   </div>
 );
 
-export default function Performance() {
+export default function Performance({ data }: { data: any }) {
   return (
     <div className="section mt-4">
       <h1 className="text-2xl font-semibold">Performance</h1>
@@ -89,15 +91,15 @@ export default function Performance() {
       <Slider
         low="Today's Low"
         high="Today's High"
-        lowPrice="46,930.22"
-        highPrice="49,384.83"
-        tag
+        lowPrice={data?.market_data?.low_24h?.usd.toLocaleString('en-US')}
+        highPrice={data?.market_data?.high_24h?.usd?.toLocaleString('en-US')}
+        tag={data?.market_data?.current_price?.usd.toLocaleString('en-US')}
       />
       <Slider
         low="52W Low"
         high="52W High"
-        lowPrice="16,930.22"
-        highPrice="49,784.83"
+        lowPrice={data?.market_data?.low_24h?.usd?.toLocaleString('en-US')}
+        highPrice={data?.market_data?.high_24h?.usd?.toLocaleString('en-US')}
       />
 
       <div>
@@ -111,7 +113,7 @@ export default function Performance() {
           />
         </h2>
         <ul className="grid sm:grid-rows-5 sm:grid-flow-col gap-x-20 sm:mb-8">
-          {fundamentalsData.map((data) => (
+          {fundamentalsData(data).map((data) => (
             <li
               key={data.title}
               className="flex items-center justify-between sm:mr-6 h-[54px] border-b-[1px] border-[#D3E0E6]"
